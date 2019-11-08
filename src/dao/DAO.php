@@ -6,7 +6,8 @@ class DAO {
   private static $dbHost = "localhost";
 	private static $dbName = "todos";
 	private static $dbUser = "todos";
-	private static $dbPass = "todos";
+  private static $dbPass = "todos";
+  
 	private static $sharedPDO;
 	protected $pdo;
 
