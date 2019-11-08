@@ -16,7 +16,7 @@
           echo '<div class="info box">' . $_SESSION['info'] . '</div>';
         }
       ?>
-      <header><h1>Todos - <?php echo $title; ?></h1></header>
+      <header><h1>Todos</h1></header>
       <?php echo $content;?>
     </main>
     <?php echo $js; ?>

@@ -11,6 +11,8 @@ class TodosController extends Controller {
     $this->todoDAO = new TodoDAO();
   }
 
-  
+  public function index() {
+
+  }
 
 }
