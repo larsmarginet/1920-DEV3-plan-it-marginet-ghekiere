@@ -1,0 +1,15 @@
+:root {
+  --gradient: linear-gradient(to bottom right, #c22cdd, #5ffae0);
+  --purpleBoxshadow: 0 0 .56rem rgba(194, 44, 221, .15);
+  --background: rgba(95, 250, 224, .12);
+  --textColor: #3c3c3c;
+  --colorBlue: #5ffae0;
+  --colorPurple: #c22cdd;
+  --smallfont: 1rem; /*16*/
+  --mediumfont: 1.56rem; /*25px*/
+  --bigfont: 1.88rem; /*30px*/
+  --smallMargin: .63rem; /*10px*/
+  --mediumMargin: 1rem; /*16px*/
+  --largeMargin: 1.88rem; /*30px*/
+  --largeHeight: 6.56rem; /*105px*/
+}

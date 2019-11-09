@@ -1,0 +1,29 @@
+@import '../vars.css';
+
+.header {
+  width: 100vw;
+  background-color: beige;
+  background-image: var(--gradient);
+  border-radius: 0 0 var(--smallMargin) var(--smallMargin);
+  height: var(--largeHeight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__title__link {
+  text-decoration: none;
+  color: white;
+  font-size: var(--mediumfont);
+  font-weight: 700;
+}
+
+.header__title__link::before {
+  content: '';
+  background-image: url(../../assets/img/logo.svg);
+  width: calc(var(--largeMargin) * 1.5);
+  height: calc(var(--smallMargin) * 2.3);
+  display: inline-block;
+  margin-right: var(--mediumMargin);
+  background-repeat: no-repeat;
+}

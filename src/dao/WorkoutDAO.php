@@ -2,6 +2,6 @@
 
 require_once( __DIR__ . '/DAO.php');
 
-class TodoDAO extends DAO {
+class WorkoutDAO extends DAO {
 
 }

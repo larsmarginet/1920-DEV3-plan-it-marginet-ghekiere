@@ -1,4 +1,33 @@
-body {
-  background-color: lightsalmon;
-  font-family: sans-serif;
+@import './css/reset.css';
+@import './css/vars.css';
+@import './css/components/header.css';
+@import './css/components/home.css';
+
+@custom-media --small-screen (width >= 600px);
+@custom-media --large-screen (width >= 900px);
+
+html {
+  box-sizing: border-box;
+  font-family: 'Istok Web', sans-serif;
+  background-color: var(--background);
+  font-size: var(--smallfont);
+}
+
+@media (--small-screen) {
+
+  html {
+    font-size: rem;
+  }
+}
+
+/* stylelint-disable */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+ /* stylelint-enable */
+
+.hidden {
+  display: none;
 }
