@@ -1,0 +1,35 @@
+@import '../vars.css';
+
+.detail__title {
+  font-size: var(--bigfont);
+  font-weight: 700;
+  margin-bottom: var(--largeMargin);
+}
+
+.detail__time {
+  background-color: var(--colorlightBlue);
+  border-radius: var(--smallMargin) var(--smallMargin) 0 0;
+  box-shadow: var(--purpleBoxshadow);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(var(--smallMargin) * 32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail__time__circle {
+  width: calc(var(--smallMargin) * 22);
+  height: calc(var(--smallMargin) * 22);
+  border: calc(var(--largeMargin) / 10) solid var(--colorBlue);
+  border-radius: calc(var(--smallMargin) * 22);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail__time__clock {
+  font-size: var(--timeFont);
+}

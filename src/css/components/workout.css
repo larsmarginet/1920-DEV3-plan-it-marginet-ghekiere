@@ -1,0 +1,44 @@
+@import '../vars.css';
+
+.activities__activity-list__item__link {
+  padding: var(--smallMargin);
+  display: grid;
+  grid-template-columns: calc(var(--largeMargin) * 2) auto calc(var(--largeMargin) * 2) var(--largeMargin);
+  grid-column-gap: calc(var(--smallMargin) * 2);
+}
+
+.play {
+  background-color: var(--colorlightBlue);
+  border-radius: var(--smallMargin) var(--smallMargin) 0 0;
+  box-shadow: var(--purpleBoxshadow);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(var(--smallMargin) * 32);
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.play__title {
+  font-size: var(--mediumfont);
+  font-weight: 700;
+  margin-top: var(--largeMargin);
+}
+
+.play__circle {
+  background-image: var(--gradient);
+  width: calc(var(--smallMargin) * 14.4);
+  height: calc(var(--smallMargin) * 14.4);
+  border-radius: calc(var(--smallMargin) * 14.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: calc(var(--smallMargin) * 2) 0;
+}
+
+.play__circle__button {
+  margin-left: var(--smallMargin);
+}

@@ -7,6 +7,26 @@ $routes = array(
   'home' => array(
     'controller' => 'Workouts',
     'action' => 'index'
+  ),
+  'intensity' => array(
+    'controller' => 'Workouts',
+    'action' => 'intensity'
+  ),
+  'workout' => array(
+    'controller' => 'Workouts',
+    'action' => 'workout'
+  ),
+  'activity' => array(
+    'controller' => 'Workouts',
+    'action' => 'activity'
+  ),
+  'detail' => array(
+    'controller' => 'Workouts',
+    'action' => 'detail'
+  ),
+  'addworkout' => array(
+    'controller' => 'Workouts',
+    'action' => 'addworkout'
   )
 );
 

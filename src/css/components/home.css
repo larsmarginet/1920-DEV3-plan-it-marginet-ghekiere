@@ -1,29 +1,17 @@
 @import '../vars.css';
 
-.workouts-wrapper {
-  margin: calc(var(--smallMargin) * 2) auto 0 auto;
-  padding: 0 calc(var(--smallMargin) * 2);
-}
-
-.workouts__workout-list {
+.white-button-list {
   display: grid;
   grid-template-rows: repeat(3 calc(var(--smallMargin) * 8));
   grid-row-gap: var(--smallMargin);
 }
 
 .workouts__workout-list__item__link {
-  background-color: white;
   display: flex;
-  align-items: center;
   padding: var(--smallMargin);
-  font-weight: 700;
-  color: var(--textColor);
-  text-decoration: none;
-  border-radius: var(--smallMargin);
-  box-shadow: var(--purpleBoxshadow);
 }
 
-.workouts__workout-list__item__img-wrapper {
+.white-button-list__img-wrapper {
   border: 1px solid var(--colorBlue);
   border-radius: calc(var(--smallMargin) / 2);
   width: calc(var(--largeMargin) * 2);
@@ -32,14 +20,4 @@
   align-items: center;
   justify-content: center;
   margin-right: calc(var(--smallMargin) * 2);
-}
-
-.workout-add__button {
-  background-color: var(--textColor);
-  height: calc(var(--smallMargin) * 4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--smallMargin);
-  margin-top: var(--mediumMargin);
 }

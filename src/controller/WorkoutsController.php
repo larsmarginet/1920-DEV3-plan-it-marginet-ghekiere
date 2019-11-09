@@ -15,4 +15,24 @@ class WorkoutsController extends Controller {
 
   }
 
+  public function intensity() {
+
+  }
+
+  public function workout(){
+
+  }
+
+  public function activity(){
+
+  }
+
+  public function detail(){
+
+  }
+
+  public function addworkout(){
+
+  }
+
 }

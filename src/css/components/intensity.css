@@ -1,0 +1,11 @@
+@import '../vars.css';
+
+.intensity__intensity-list__item__link {
+  padding: calc(var(--smallMargin) * 2);
+  display: flex;
+  justify-content: space-between;
+}
+
+.intensity__intensity-list__item__link__text {
+  font-size: var(--bigfont);
+}

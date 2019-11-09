@@ -2,6 +2,10 @@
 @import './css/vars.css';
 @import './css/components/header.css';
 @import './css/components/home.css';
+@import './css/components/intensity.css';
+@import './css/components/workout.css';
+@import './css/components/activity.css';
+@import './css/components/detail.css';
 
 @custom-media --small-screen (width >= 600px);
 @custom-media --large-screen (width >= 900px);
@@ -11,13 +15,7 @@ html {
   font-family: 'Istok Web', sans-serif;
   background-color: var(--background);
   font-size: var(--smallfont);
-}
-
-@media (--small-screen) {
-
-  html {
-    font-size: rem;
-  }
+  color: var(--textColor);
 }
 
 /* stylelint-disable */
@@ -30,4 +28,79 @@ html {
 
 .hidden {
   display: none;
+}
+
+.wrapper {
+  margin: calc(var(--smallMargin) * 2) auto 0 auto;
+  padding: 0 calc(var(--smallMargin) * 2);
+}
+
+.button-white {
+  background-color: white;
+  align-items: center;
+  font-weight: 700;
+  color: var(--textColor);
+  text-decoration: none;
+  border-radius: var(--smallMargin);
+  box-shadow: var(--purpleBoxshadow);
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: calc(var(--smallfont) / 2);
+}
+
+.subtext {
+  opacity: .6;
+  margin-bottom: var(--mediumfont);
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.add__button {
+  background-color: var(--textColor);
+  height: calc(var(--smallMargin) * 4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--smallMargin);
+  margin-top: var(--mediumMargin);
+  box-shadow: 0 0 var(--smallMargin) rgba(0, 0, 0, .25);
+}
+
+.white-button-list__time {
+  border-radius: calc(var(--smallMargin) / 2.5);
+  border: calc(var(--smallMargin) / 10) solid var(--colorBlue);
+  width: calc(var(--largeMargin) * 2);
+  height: var(--largeMargin);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea, select, input, button {
+  outline: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+textarea, input {
+  border: calc(var(--smallMargin) / 10) solid var(--colorBlue);
+  border-radius: var(--smallMargin);
+  font-size: var(--smallfont);
+  color: var(--textColor);
+  padding: var(--smallMargin);
+}
+
+.input__title {
+  height: calc(var(--smallMargin) * 4.4);
 }

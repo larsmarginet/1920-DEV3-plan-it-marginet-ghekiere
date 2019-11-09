@@ -1,0 +1,81 @@
+@import '../vars.css';
+
+.Activity__title {
+  font-size: var(--bigfont);
+  text-align: center;
+}
+
+.activity__form__description {
+  margin-bottom: calc(var(--smallMargin) * 2.5);
+}
+
+.activity__label {
+  margin-top: var(--largeMargin);
+}
+
+.has-js .phase2 {
+  display: none;
+}
+
+.activity__form__section {
+  display: flex;
+  flex-flow: column;
+}
+
+.button__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--largeMargin);
+}
+
+.activity__button {
+  background-color: var(--textColor);
+  border-radius: var(--smallMargin);
+  width: calc(var(--largeMargin) * 4);
+  height: calc(var(--smallMargin) * 4);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--smallfont);
+  box-shadow: 0 0 var(--smallMargin) rgba(0, 0, 0, .25);
+}
+
+.back-button::before {
+  content: '';
+  background-image: url(../../assets/img/arrow.svg);
+  width: calc(var(--smallMargin) * 1.8);
+  height: calc(var(--smallMargin) * 1.5);
+  display: inline-block;
+  margin-left: calc(var(--smallMargin) * -2);
+  margin-right: calc(var(--smallMargin) * 2);
+}
+
+.next-button::after {
+  content: '';
+  background-image: url(../../assets/img/arrow.svg);
+  transform: rotate(180deg);
+  width: calc(var(--smallMargin) * 1.8);
+  height: calc(var(--smallMargin) * 1.5);
+  display: inline-block;
+  margin-left: calc(var(--smallMargin) * 2);
+  margin-right: calc(var(--smallMargin) * -2);
+}
+
+input[type=number] {
+  width: calc(var(--smallMargin) * 10);
+  height: calc(var(--smallMargin) * 4.4);
+  padding: var(--smallMargin);
+  font-size: var(--smallfont);
+}
+
+.num__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.input__description {
+  height: calc(var(--smallMargin) * 16.6);
+}
