@@ -3,15 +3,17 @@
   <article class="workouts">
     <h3 class="hidden">Workout overview</h3>
     <ul class="white-button-list">
+    <?php foreach($workouts as $workout): ?>
       <li class="workouts__workout-list__item">
-        <a href="index.php?page=intensity" class="button-white workouts__workout-list__item__link">
+        <a href="index.php?page=intensity&id=<?php echo $workout['id']; ?>" class="button-white workouts__workout-list__item__link">
           <div class="white-button-list__img-wrapper">
             <img src="assets/img/logo-gradient.svg" class="white-button-list__img" width="41" height="23" alt="dumbbell icon">
           </div>
-          Cardio
+          <?php echo $workout['title']; ?>
         </a>
       </li>
-      <li class="workouts__workout-list__item">
+    <?php endforeach; ?>
+      <!-- <li class="workouts__workout-list__item">
         <a href="index.php?page=intensity" class="button-white workouts__workout-list__item__link">
           <div class="white-button-list__img-wrapper">
             <img src="assets/img/logo-gradient.svg" class="white-button-list__img" width="41" height="23" alt="dumbbell icon">
@@ -26,7 +28,7 @@
           </div>
           Arms
         </a>
-      </li>
+      </li> -->
   </article>
   <article class="add">
     <h2 class="hidden">Workout add</h2>

@@ -1,18 +1,20 @@
 <?php
 
 require_once __DIR__ . '/Controller.php';
-require_once __DIR__ . '/../dao/WorkoutDAO.php';
+require_once __DIR__ . '/../dao/WorkoutsDAO.php';
 
 class WorkoutsController extends Controller {
 
   private $workoutDAO;
 
   function __construct() {
-    $this->workoutDAO = new WorkoutDAO();
+    $this->workoutDAO = new WorkoutsDAO();
   }
 
   public function index() {
+    $workouts = $this->workoutDAO->selectAllWorkouts();
 
+    $this->set('workouts', $workouts);
   }
 
   public function intensity() {

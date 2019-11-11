@@ -4,9 +4,9 @@ class DAO {
 
   // Properties
   private static $dbHost = "localhost";
-	private static $dbName = "todos";
-	private static $dbUser = "todos";
-  private static $dbPass = "todos";
+	private static $dbName = "planit";
+	private static $dbUser = "planit";
+  private static $dbPass = "planit";
 
 	private static $sharedPDO;
 	protected $pdo;
