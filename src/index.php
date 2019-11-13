@@ -13,7 +13,7 @@ $routes = array(
     'action' => 'intensity'
   ),
   'workout' => array(
-    'controller' => 'Workouts',
+    'controller' => 'Activities',
     'action' => 'workout'
   ),
   'activity' => array(
@@ -21,7 +21,7 @@ $routes = array(
     'action' => 'activity'
   ),
   'detail' => array(
-    'controller' => 'Workouts',
+    'controller' => 'Activities',
     'action' => 'detail'
   ),
   'addworkout' => array(

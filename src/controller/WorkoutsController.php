@@ -19,6 +19,10 @@ class WorkoutsController extends Controller {
 
   public function intensity() {
 
+    $workout_id = $_GET['id'];
+    $this->set('workout_id', $workout_id);
+
+
   }
 
   public function workout(){
@@ -30,7 +34,9 @@ class WorkoutsController extends Controller {
   }
 
   public function detail(){
-
+    $workout_id = $_GET['id'];
+    $this->set('workout_id', $workout_id);
+    
   }
 
   public function addworkout(){

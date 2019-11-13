@@ -11,4 +11,6 @@ class WorkoutsDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+
+
 }
