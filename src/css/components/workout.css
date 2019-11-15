@@ -1,5 +1,11 @@
 @import '../vars.css';
 
+.activities {
+  height: calc(100vh - calc(var(--smallMargin) * 32) - var(--largeHeight) - calc(var(--smallMargin) * 2));
+  /* full viewheight - play section & header & top margin */
+  overflow: scroll;
+}
+
 .activities__activity-list__item__link {
   padding: var(--smallMargin);
   display: grid;
