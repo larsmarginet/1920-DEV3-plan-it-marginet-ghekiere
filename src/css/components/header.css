@@ -7,6 +7,7 @@
   border-radius: 0 0 var(--smallMargin) var(--smallMargin);
   height: var(--largeHeight);
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
 }
@@ -26,4 +27,20 @@
   display: inline-block;
   margin-right: var(--mediumMargin);
   background-repeat: no-repeat;
+}
+
+.box {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  padding: var(--smallMargin);
+  width: 100vw;
+}
+
+.info {
+  background-color: green;
+}
+
+.error {
+  background-color: red;
 }

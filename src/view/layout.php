@@ -8,7 +8,8 @@
     <?php echo $css;?>
   </head>
   <body>
-    <?php
+      <header class="header">
+      <?php
         if(!empty($_SESSION['error'])) {
           echo '<div class="error box">' . $_SESSION['error'] . '</div>';
         }
@@ -16,7 +17,6 @@
           echo '<div class="info box">' . $_SESSION['info'] . '</div>';
         }
       ?>
-      <header class="header">
         <h1 class="header__title"><a class="header__title__link" href="index.php?page=home">Workit</a></h1>
       </header>
     <main>

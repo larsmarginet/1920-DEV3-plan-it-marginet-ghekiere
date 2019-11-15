@@ -13,30 +13,12 @@ class WorkoutsController extends Controller {
 
   public function index() {
     $workouts = $this->workoutDAO->selectAllWorkouts();
-
     $this->set('workouts', $workouts);
   }
 
   public function intensity() {
-
     $workout_id = $_GET['id'];
     $this->set('workout_id', $workout_id);
-
-
-  }
-
-  public function workout(){
-
-  }
-
-  public function activity(){
-
-  }
-
-  public function detail(){
-    $workout_id = $_GET['id'];
-    $this->set('workout_id', $workout_id);
-    
   }
 
   public function addworkout(){
