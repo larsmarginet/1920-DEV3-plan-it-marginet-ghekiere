@@ -1,7 +1,9 @@
 <?php
 
+require_once __DIR__ . '/../models/Activity.php';
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/ActivitiesDAO.php';
+
 
 class ActivitiesController extends Controller {
 
@@ -12,7 +14,26 @@ class ActivitiesController extends Controller {
 
   public function workout(){
     $workout_id = $_GET['id'];
-    $activities = $this->activityDAO->selectActivitiesByWorkoutId($workout_id);
+    $intensity = $_GET['intensity'];
+    $activitiesArr = $this->activityDAO->selectActivitiesByWorkoutId($workout_id);
+    $activities = []; //Array aanmaken om activity objecten in te steken zodat we via de models > activity alles kunnen overlopen.
+    foreach($activitiesArr as $activity){
+      $activity = new Activity($activity);
+
+      switch($intensity){
+        case "normal":
+          $activity->setNormal();
+          break;
+        case "hard":
+          $activity->setHard();
+          break;
+      }
+      $activity->setIntensity($intensity);
+      array_push($activities, $activity);
+    }
+
+
+
     $this->set('workout_id', $workout_id);
     $this->set('activities', $activities);
   }
@@ -20,6 +41,17 @@ class ActivitiesController extends Controller {
 
   public function detail(){
     $activity = $this->activityDAO->selectActivityById($_GET['id']);
+    $activity = new Activity($activity);
+    switch($_GET['intensity']){
+      case "normal":
+        $activity->setNormal();
+        break;
+      case "hard":
+        $activity->setHard();
+        break;
+    }
+    $activity->setIntensity($_GET['intensity']);
+    //$activity['duration'] = substr($activity['duration'],3);
     $this->set('activity', $activity);
   }
 

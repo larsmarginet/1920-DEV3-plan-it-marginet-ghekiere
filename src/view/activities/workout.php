@@ -6,12 +6,12 @@
 
     <?php foreach($activities as $activity): ?>
       <li class="activities__activity-list__item">
-        <a href="index.php?page=detail&id=<?php echo $activity['id']; ?>" class="button-white activities__activity-list__item__link">
+        <a href="index.php?page=detail&id=<?php echo $activity->getId(); ?>&intensity=<?php echo $activity->getIntensity()?>" class="button-white activities__activity-list__item__link">
           <div class="white-button-list__img-wrapper">
             <img src="assets/img/logo-gradient.svg" class="white-button-list__img" width="41" height="23" alt="dumbbell icon">
           </div>
-          <p class="activities__activity-list__item__title"><?php echo $activity['title']; ?></p>
-          <div class="white-button-list__time"><?php echo $activity['duration']; ?></div>
+          <p class="activities__activity-list__item__title"><?php echo $activity->getTitle(); ?></p>
+          <div class="white-button-list__time"><?php echo $activity->getDuration(); ?></div>
           <button type="submit" class="white-button-list__delete" name="remove" value="xxx"><img src="assets/img/delete.svg"></button>
         </a>
       </li>
@@ -31,3 +31,5 @@
   <p>Overall duration:</p>
   <p class="bold">10:00</p>
 </section>
+
+
