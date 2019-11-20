@@ -16,11 +16,6 @@ class WorkoutsController extends Controller {
     $this->set('workouts', $workouts);
   }
 
-  public function intensity() {
-    $workout_id = $_GET['id'];
-    $this->set('workout_id', $workout_id);
-  }
-
   public function addworkout(){
 
   }

@@ -29,7 +29,7 @@
     <a class="play__circle__button"><img src="assets/img/play.svg" class="play__circle__triangle" alt="play__button" width="101" height="101"></a>
   </div>
   <p>Overall duration:</p>
-  <p class="bold">10:00</p>
+  <p class="bold"><?php echo gmdate("i:s", $totalTime);?></p>
 </section>
 
 

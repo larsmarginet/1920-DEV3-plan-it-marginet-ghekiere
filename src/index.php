@@ -9,7 +9,7 @@ $routes = array(
     'action' => 'index'
   ),
   'intensity' => array(
-    'controller' => 'Workouts',
+    'controller' => 'Activities',
     'action' => 'intensity'
   ),
   'workout' => array(
