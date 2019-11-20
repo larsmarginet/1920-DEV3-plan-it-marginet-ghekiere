@@ -28,7 +28,7 @@ class ActivitiesDAO extends DAO {
   }
 
   public function delete($id){
-    $sql = "DELETE FROM `todos` WHERE `id` = :id";
+    $sql = "DELETE FROM `activities` WHERE `id` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     return $stmt->execute();

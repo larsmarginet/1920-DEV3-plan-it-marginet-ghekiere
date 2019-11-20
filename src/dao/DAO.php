@@ -3,11 +3,6 @@
 class DAO {
 
   // Properties
-  private static $dbHost = "localhost";
-	private static $dbName = "planit";
-	private static $dbUser = "planit";
-  private static $dbPass = "planit";
-
 	private static $sharedPDO;
 	protected $pdo;
 
@@ -15,7 +10,13 @@ class DAO {
 	function __construct() {
 
 		if(empty(self::$sharedPDO)) {
-			self::$sharedPDO = new PDO("mysql:host=" . self::$dbHost . ";dbname=" . self::$dbName, self::$dbUser, self::$dbPass);
+
+      $dbHost = getenv('PHP_DB_HOST') ?: "localhost";
+      $dbName = getenv('PHP_DB_DATABASE') ?: "planit";
+      $dbUser = getenv('PHP_DB_USERNAME') ?: "planit";
+      $dbPass = getenv('PHP_DB_PASSWORD') ?: "planit";
+
+			self::$sharedPDO = new PDO("mysql:host=" . $dbHost . ";dbname=" . $dbName, $dbUser, $dbPass);
 			self::$sharedPDO->exec("SET CHARACTER SET utf8");
 			self::$sharedPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			self::$sharedPDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
