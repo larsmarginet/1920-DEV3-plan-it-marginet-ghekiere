@@ -12,7 +12,7 @@ class ActivitiesDAO extends DAO {
   }
 
   public function selectActivitiesByWorkoutId($workout_id){
-    $sql = "SELECT * FROM `activities` WHERE `workout_id` = :workout_id";
+    $sql = "SELECT * FROM `activities` WHERE `workout_id` = :workout_id ORDER BY RAND ()";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':workout_id',$workout_id);
     $stmt->execute();

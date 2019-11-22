@@ -10,6 +10,9 @@ class ActivitiesController extends Controller {
     $this->activityDAO = new ActivitiesDAO();
   }
 
+
+
+
   public function intensity() {
     $workout_id = $_GET['id'];
     $activitiesArr = $this->activityDAO->selectActivitiesByWorkoutId($workout_id);
@@ -23,6 +26,10 @@ class ActivitiesController extends Controller {
     $this->set('totalTime', $totalTime);
     $this->set('workout_id', $workout_id);
   }
+
+
+
+
 
   public function workout(){
     $workout_id = $_GET['id'];
@@ -76,6 +83,10 @@ class ActivitiesController extends Controller {
     $this->set('activities', $activities);
   }
 
+
+
+
+
   function AddPlayTime($timeArr) {
     $h = $m = $s = 0;
     // loop throught all the hours minutes and seconds and convert them all to seconds
@@ -89,6 +100,8 @@ class ActivitiesController extends Controller {
     $totalTime = $h + $m +$s;
     return $totalTime;
 }
+
+
 
 
   public function detail(){
@@ -107,6 +120,9 @@ class ActivitiesController extends Controller {
     $this->set('activity', $activity);
   }
 
+
+
+
   public function activity(){
     $workout_id = $_GET['id'];
     $intensity = $_GET['intensity'];
@@ -119,6 +135,8 @@ class ActivitiesController extends Controller {
       }
     }
   }
+
+
 
 
   private function handleInsertActivity() {
@@ -136,7 +154,10 @@ class ActivitiesController extends Controller {
       'quantity' => $_POST['amount'],
       'workout_id' => $_GET['id']
     );
-    $insertActivityResult = $this->activityDAO->insert($data);
+    for($i = 0; $i < $_POST['amount']; $i++) {
+      $insertActivityResult = $this->activityDAO->insert($data);
+    }
+
     if (!$insertActivityResult) {
       $errors = $this->activityDAO->validate($data);
       $this->set('errors', $errors);
