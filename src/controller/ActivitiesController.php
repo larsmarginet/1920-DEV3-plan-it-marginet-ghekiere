@@ -63,6 +63,13 @@ class ActivitiesController extends Controller {
       $this->set('totalTime', $totalTime);
     }
 
+    if (!empty($_POST['action'])) {
+      if ($_POST['action'] == 'remove') {
+        $this->activityDAO->delete($_GET['activity_id']);
+        header('Location: index.php?page=workout&id=' . $_GET['id'] . '&intensity=' . $_GET['intensity']);
+      }
+    }
+
 
     $this->set('workout_id', $workout_id);
     $this->set('intensity', $intensity);
@@ -112,6 +119,7 @@ class ActivitiesController extends Controller {
       }
     }
   }
+
 
   private function handleInsertActivity() {
     // todo! calc duration based on number input

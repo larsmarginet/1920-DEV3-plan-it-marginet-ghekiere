@@ -34,7 +34,7 @@
         </div>
         <label class="activity__label title" for="amount">Amount</label>
         <div class="num__wrapper">
-          <input id="amount" name="amount" type="number" placeholder="00">
+          <input id="amount" name="amount" min="0" max="10" type="number" placeholder="00">
         </div>
         <div class="button__wrapper">
           <button data-id="2"  class="activity__button prev"><p class="back-button">Back</p></button>
