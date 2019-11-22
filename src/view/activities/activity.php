@@ -1,6 +1,6 @@
 <section class="wrapper">
   <h2 class="Activity__title">Add an activity!</h2>
-  <form class="activity__form" id="insertActivityForm" method="post" action="index.php?page=activity&id=<?php echo $workout_id;?>">
+  <form class="activity__form" id="insertActivityForm" method="post" action="index.php?page=activity&id=<?php echo $workout_id; ?>&intensity=<?php echo $intensity; ?>">
   <input type="hidden" name="action" value="insertActivity"/>
 
     <div class="phase1">

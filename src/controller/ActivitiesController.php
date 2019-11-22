@@ -65,6 +65,7 @@ class ActivitiesController extends Controller {
 
 
     $this->set('workout_id', $workout_id);
+    $this->set('intensity', $intensity);
     $this->set('activities', $activities);
   }
 
@@ -101,7 +102,9 @@ class ActivitiesController extends Controller {
 
   public function activity(){
     $workout_id = $_GET['id'];
+    $intensity = $_GET['intensity'];
     $this->set('workout_id', $workout_id);
+    $this->set('intensity', $intensity);
 
     if (!empty($_POST['action'])) {
       if ($_POST['action'] == 'insertActivity') {
@@ -148,7 +151,7 @@ class ActivitiesController extends Controller {
         exit();
       }
       $_SESSION['info'] = 'The activity is added!';
-      header('Location: index.php?page=workout&id=' . $_GET['id']);
+      header('Location: index.php?page=workout&id=' . $_GET['id'] . '&intensity=' . $_GET['intensity']);
       exit();
     }
   }

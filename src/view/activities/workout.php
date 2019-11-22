@@ -20,7 +20,7 @@
   </article>
   <article class="add">
     <h2 class="hidden">Workout add</h2>
-    <a class="add__button" href="index.php?page=activity&id=<?php echo $workout_id;?>"><img src="assets/img/add.svg" class="add__button__img" alt="plus icon" width="15" height="16"></a>
+    <a class="add__button" href="index.php?page=activity&id=<?php echo $workout_id; ?>&intensity=<?php echo $activity->getIntensity()?>"><img src="assets/img/add.svg" class="add__button__img" alt="plus icon" width="15" height="16"></a>
   </article>
 </section>
 <section class="play">
