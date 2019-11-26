@@ -3,15 +3,13 @@
 require_once __DIR__ . '/../models/Activity.php';
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/ActivitiesDAO.php';
+require_once __DIR__ . '/../Utils/Utils.php';
 
 class ActivitiesController extends Controller {
 
   function __construct() {
     $this->activityDAO = new ActivitiesDAO();
   }
-
-
-
 
   public function intensity() {
     $workout_id = $_GET['id'];
@@ -35,6 +33,7 @@ class ActivitiesController extends Controller {
     $workout_id = $_GET['id'];
     $activitiesArr = $this->activityDAO->selectActivitiesByWorkoutId($workout_id);
     $intensity = $_GET['intensity'];
+    $totalTime = 0;
     $activities = []; //Make array to add activity objects so we can loop over eveything via models > activity
     foreach($activitiesArr as $activity){
       $activity = new Activity($activity);
@@ -48,26 +47,30 @@ class ActivitiesController extends Controller {
           break;
       }
       $activity->setIntensity($intensity);
+      $totalTime += $activity->getDurationInSeconds();
       array_push($activities, $activity);
 
-      $timeArr = []; //Make an array with all the activity durations so we can add them
-      foreach($activitiesArr as $activity) {
-        array_push($timeArr, $activity['duration']);
-      }
+
+
+      //$timeArr = []; //Make an array with all the activity durations so we can add them
+
+
+        //array_push($timeArr, $activity['duration']);
+
 
       //based on the intensity the time is longer
-      switch($intensity){
-        case "easy":
-          $totalTime = $this->AddPlayTime($timeArr);
-          break;
-        case "normal":
-          $totalTime = $this->AddPlayTime($timeArr)*2;
-          break;
-        case "hard":
-          $totalTime = $this->AddPlayTime($timeArr)*3;
-          break;
-      }
-      $this->set('totalTime', $totalTime);
+      // switch($intensity){
+      //   case "easy":
+      //     $totalTime = $this->AddPlayTime($timeArr);
+      //     break;
+      //   case "normal":
+      //     $totalTime = $this->AddPlayTime($timeArr)*2;
+      //     break;
+      //   case "hard":
+      //     $totalTime = $this->AddPlayTime($timeArr)*3;
+      //     break;
+      // }
+
     }
 
     if (!empty($_POST['action'])) {
@@ -77,7 +80,7 @@ class ActivitiesController extends Controller {
       }
     }
 
-
+    $this->set('totalTime', Utils::fromSeconds($totalTime));
     $this->set('workout_id', $workout_id);
     $this->set('intensity', $intensity);
     $this->set('activities', $activities);
@@ -95,9 +98,11 @@ class ActivitiesController extends Controller {
         $h += $time->format('H')*3600;
         $m += $time->format('i')*60;
         $s += $time->format('s');
+        //$s += $time;
     }
     //add everything to get the total amount of seconds
     $totalTime = $h + $m +$s;
+    //$totalTime = $s
     return $totalTime;
 }
 

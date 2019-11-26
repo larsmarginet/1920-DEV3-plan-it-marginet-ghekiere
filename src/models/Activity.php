@@ -21,6 +21,7 @@ class Activity {
       if($this->intensity != null && $this->intensity != ""){
         return $this->intensity;
       }
+      else return null;
     }
 
     function getTitle(){
@@ -78,6 +79,10 @@ class Activity {
 
     function getDuration(){
       return $this->fromSeconds($this->duration);
+    }
+
+    function getDurationInSeconds(){
+      return $this->duration;
     }
 
 

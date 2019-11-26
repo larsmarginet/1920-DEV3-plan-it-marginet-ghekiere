@@ -9,6 +9,7 @@
         <!-- The second div is for styling. Because in JS you go from display none to display block. So you can't use flexbox or grid -->
         <label class="activity__label title" for="title">Title</label>
         <p class="activity__form__description">Give your activity a short title. E.g. Go run!</p>
+
         <input class="input__title" id="title" name="title" type="text">
 
         <label class="activity__label title" for="description">Description</label>

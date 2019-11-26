@@ -17,7 +17,24 @@ class WorkoutsController extends Controller {
   }
 
   public function addworkout(){
+    if (!empty($_POST['action'])) {
+      if ($_POST['action'] == 'insertWorkout') {
+        $this->handleInsertWorkout();
+      }
+    }
+  }
 
+  public function handleInsertWorkout(){
+    $title = $_POST['title'];
+    $insertWorkoutResult = $this->workoutDAO->insert($title);
+    header('Location: index.php?page=activity');
+
+    //het id van de workout moet hij mee geven // zet de standaard intensiteit op normal
+    //we moeten één flow creeren waarbij we een workout aanmaken en vervolgens direct een activiteti
+    //toevoegen om vervolgens terecht te komen in de workout met de gecreerde activitei onder de "easy" intensiteit!
+    
   }
 
 }
+
+
