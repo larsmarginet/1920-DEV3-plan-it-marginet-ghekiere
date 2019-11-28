@@ -1,5 +1,10 @@
 @import '../vars.css';
 
+.detail-overview {
+  overflow: scroll;
+  height: calc(100vh - calc(var(--smallMargin) * 45));
+}
+
 .detail__title {
   font-size: var(--bigfont);
   font-weight: 700;
@@ -32,4 +37,20 @@
 
 .detail__time__clock {
   font-size: var(--timeFont);
+}
+
+.detail_video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: var(--largeMargin);
+}
+
+.detail_video iframe, .detail_video object, .detail_video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

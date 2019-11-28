@@ -23,6 +23,10 @@
   display: none;
 }
 
+.has-js .phase3 {
+  display: none;
+}
+
 .activity__form__section {
   display: flex;
   flex-flow: column;
@@ -84,4 +88,9 @@ input[type=number] {
 
 .input__description {
   height: calc(var(--smallMargin) * 16.6);
+}
+
+.num__wrapper-label {
+  display: flex;
+  flex-flow: column;
 }

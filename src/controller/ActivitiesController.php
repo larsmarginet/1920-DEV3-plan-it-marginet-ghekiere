@@ -19,8 +19,7 @@ class ActivitiesController extends Controller {
       foreach($activitiesArr as $activity) {
         array_push($timeArr, $activity['duration']);
       }
-    $totalTime = $this->AddPlayTime($timeArr);
-
+    $totalTime = $this->calcSeconds($timeArr);
     $this->set('totalTime', $totalTime);
     $this->set('workout_id', $workout_id);
   }
@@ -49,28 +48,6 @@ class ActivitiesController extends Controller {
       $activity->setIntensity($intensity);
       $totalTime += $activity->getDurationInSeconds();
       array_push($activities, $activity);
-
-
-
-      //$timeArr = []; //Make an array with all the activity durations so we can add them
-
-
-        //array_push($timeArr, $activity['duration']);
-
-
-      //based on the intensity the time is longer
-      // switch($intensity){
-      //   case "easy":
-      //     $totalTime = $this->AddPlayTime($timeArr);
-      //     break;
-      //   case "normal":
-      //     $totalTime = $this->AddPlayTime($timeArr)*2;
-      //     break;
-      //   case "hard":
-      //     $totalTime = $this->AddPlayTime($timeArr)*3;
-      //     break;
-      // }
-
     }
 
     if (!empty($_POST['action'])) {
@@ -90,7 +67,7 @@ class ActivitiesController extends Controller {
 
 
 
-  function AddPlayTime($timeArr) {
+  function calcSeconds($timeArr) {
     $h = $m = $s = 0;
     // loop throught all the hours minutes and seconds and convert them all to seconds
     foreach ($timeArr as $time) {
@@ -121,7 +98,6 @@ class ActivitiesController extends Controller {
         break;
     }
     $activity->setIntensity($_GET['intensity']);
-    //$activity['duration'] = substr($activity['duration'],3);
     $this->set('activity', $activity);
   }
 
@@ -141,22 +117,21 @@ class ActivitiesController extends Controller {
     }
   }
 
-
-
+  private function convertToTime($min, $sec){
+    return "00:" . sprintf("%02d", $min) . ":" . sprintf("%02d", $sec);
+  }
 
   private function handleInsertActivity() {
-    // todo! calc duration based on number input
-    $min = sprintf("%02d", $_POST['min']);
-    $sec = sprintf("%02d", $_POST['sec']);
+    $duration = "00:" . sprintf("%02d", $_POST['min']) . ":" . sprintf("%02d", $_POST['sec']);
 
-
-    $duration = "00:" . $min . ":" . $sec;
+    $timestamp = ($_POST['minute'] * 60) + $_POST['second'];
+    $youtube = end(explode('=',$_POST['youtube'])) . "?start=" . $timestamp;
 
     $data = array(
       'title' => $_POST['title'],
       'description' => $_POST['description'],
       'duration' => $duration,
-      'quantity' => $_POST['amount'],
+      'youtube' => $youtube,
       'workout_id' => $_GET['id']
     );
     for($i = 0; $i < $_POST['amount']; $i++) {
