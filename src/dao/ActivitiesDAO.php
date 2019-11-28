@@ -12,7 +12,7 @@ class ActivitiesDAO extends DAO {
   }
 
   public function selectActivitiesByWorkoutId($workout_id){
-    $sql = "SELECT * FROM `activities` WHERE `workout_id` = :workout_id";
+    $sql = "SELECT * FROM `activities` WHERE `workout_id` = :workout_id ORDER BY RAND ()";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':workout_id',$workout_id);
     $stmt->execute();
@@ -37,12 +37,12 @@ class ActivitiesDAO extends DAO {
   public function insert($data) {
     $errors = $this->validate( $data );
     if (empty($errors)) {
-      $sql = "INSERT INTO `activities` (`title`, `description`, `duration`, `quantity`, `workout_id`) VALUES (:title, :description, :duration, :quantity, :workout_id)";
+      $sql = "INSERT INTO `activities` (`title`, `description`, `duration`, `youtube`, `workout_id`) VALUES (:title, :description, :duration, :youtube, :workout_id)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':title', $data['title']);
       $stmt->bindValue(':description', $data['description']);
       $stmt->bindValue(':duration', $data['duration']);
-      $stmt->bindValue(':quantity', $data['quantity']);
+      $stmt->bindValue(':youtube', $data['youtube']);
       $stmt->bindValue(':workout_id', $data['workout_id']);
       if ($stmt->execute()) {
         return $this->selectActivityById($this->pdo->lastInsertId());
@@ -62,8 +62,8 @@ class ActivitiesDAO extends DAO {
     if (!isset($data['duration'])) {
       $errors['duration'] = 'Please fill in the duration';
     }
-    if (empty($data['quantity']) ){
-      $errors['quantity'] = 'Please fill in the amount';
+    if (empty($data['youtube']) ){
+      $errors['youtube'] = 'Please fill in a Youtube link';
     }
     if (empty($data['workout_id']) ){
       $errors['workout_id'] = 'The workout_id is wrong';

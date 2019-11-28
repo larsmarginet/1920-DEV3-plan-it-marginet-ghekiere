@@ -1,7 +1,7 @@
 <section class="wrapper">
   <h2 class="Activity__title">Add a workout!</h2>
-  <form class="activity__form" method="POST" action="index.php?page=activity">
-
+  <form class="activity__form" method="POST" action="index.php?page=addworkout">
+  <input type="hidden" name="action" value="insertWorkout"/>
 
     <div class="phase1">
       <!-- First div is for the different phases in Javascript. -->

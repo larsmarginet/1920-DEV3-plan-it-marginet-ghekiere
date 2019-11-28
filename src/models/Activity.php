@@ -8,7 +8,7 @@ class Activity {
         $this->title = $activity['title'];
         $this->description = $activity['description'];
         $this->duration =  $this->toSeconds($activity['duration']);
-        $this->quantity = $activity['quantity'];
+        $this->youtube = $activity['youtube'];
         $this->workout_id = $activity['workout_id'];
 
     }
@@ -21,6 +21,7 @@ class Activity {
       if($this->intensity != null && $this->intensity != ""){
         return $this->intensity;
       }
+      else return null;
     }
 
     function getTitle(){
@@ -31,8 +32,8 @@ class Activity {
       return $this->description;
     }
 
-    function getQuantity(){
-      return $this->quantity;
+    function getYoutube(){
+      return $this->youtube;
     }
 
     function getWorkoutId(){
@@ -78,6 +79,10 @@ class Activity {
 
     function getDuration(){
       return $this->fromSeconds($this->duration);
+    }
+
+    function getDurationInSeconds(){
+      return $this->duration;
     }
 
 

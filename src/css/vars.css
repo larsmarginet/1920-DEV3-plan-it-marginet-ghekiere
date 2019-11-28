@@ -15,3 +15,7 @@
   --largeMargin: 1.88rem; /*30px*/
   --largeHeight: 6.56rem; /*105px*/
 }
+
+@custom-media --small-viewport (width >= 400px);
+@custom-media --medium-viewport (width >= 750px);
+@custom-media --large-viewport (width >= 1000px);

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Workit</title>
     <?php /* NEW */ ?>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <link href="https://fonts.googleapis.com/css?family=Istok+Web:400,700&display=swap" rel="stylesheet">
     <?php echo $css;?>
   </head>
