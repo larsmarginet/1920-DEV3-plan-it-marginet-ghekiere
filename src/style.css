@@ -156,3 +156,8 @@ input {
 .input__title {
   height: calc(var(--smallMargin) * 4.4);
 }
+
+.jserror {
+  color: red;
+  margin-top: var(--smallMargin);
+}
