@@ -1,18 +1,18 @@
-@import './css/reset.css';
-@import './css/vars.css';
-@import './css/components/header.css';
-@import './css/components/home.css';
-@import './css/components/intensity.css';
-@import './css/components/workout.css';
-@import './css/components/activity.css';
-@import './css/components/detail.css';
+@import "./css/reset.css";
+@import "./css/vars.css";
+@import "./css/components/header.css";
+@import "./css/components/home.css";
+@import "./css/components/intensity.css";
+@import "./css/components/workout.css";
+@import "./css/components/activity.css";
+@import "./css/components/detail.css";
 
 @custom-media --small-screen (width >= 600px);
 @custom-media --large-screen (width >= 900px);
 
 html {
   box-sizing: border-box;
-  font-family: 'Istok Web', sans-serif;
+  font-family: "Istok Web", sans-serif;
   background-color: var(--background);
   font-size: var(--smallfont);
   color: var(--textColor);
@@ -24,7 +24,7 @@ html {
 *:after {
   box-sizing: inherit;
 }
- /* stylelint-enable */
+/* stylelint-enable */
 
 .hidden {
   display: none;
@@ -51,7 +51,7 @@ html {
 }
 
 .subtext {
-  opacity: .6;
+  opacity: 0.6;
   margin-bottom: var(--mediumfont);
 }
 
@@ -67,7 +67,11 @@ html {
   align-items: center;
   border-radius: var(--smallMargin);
   margin-top: var(--mediumMargin);
-  box-shadow: 0 0 var(--smallMargin) rgba(0, 0, 0, .25);
+  box-shadow: 0 0 var(--smallMargin) rgba(0, 0, 0, 0.25);
+}
+
+.add {
+  padding-bottom: 10px;
 }
 
 .white-button-list__time {
@@ -84,7 +88,10 @@ textarea {
   resize: none;
 }
 
-textarea, select, input, button {
+textarea,
+select,
+input,
+button {
   outline: none;
 }
 
@@ -93,7 +100,8 @@ button {
   background: none;
 }
 
-textarea, input {
+textarea,
+input {
   border: calc(var(--smallMargin) / 10) solid var(--colorBlue);
   border-radius: var(--smallMargin);
   font-size: var(--smallfont);
