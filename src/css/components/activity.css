@@ -1,5 +1,11 @@
 @import '../vars.css';
 
+.activity__form {
+  padding: 0 calc(var(--smallMargin) * 2);
+  max-width: calc(var(--largeMargin) * 15);
+  margin: 0 auto;
+}
+
 .Activity__title {
   font-size: var(--bigfont);
   text-align: center;

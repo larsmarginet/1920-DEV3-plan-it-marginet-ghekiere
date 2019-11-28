@@ -9,8 +9,16 @@
 .activities__activity-list__item__link {
   padding: var(--smallMargin);
   display: grid;
-  grid-template-columns: calc(var(--largeMargin) * 2) auto calc(var(--largeMargin) * 2) var(--largeMargin);
+  grid-template-columns: auto calc(var(--largeMargin) * 2);
+  grid-template-rows: 1fr auto;
   grid-column-gap: calc(var(--smallMargin) * 2);
+  grid-row-gap: calc(var(--smallMargin));
+}
+
+.white-button-list__time-button {
+  justify-self: end;
+  grid-row: 1/2;
+  grid-column: 2/3;
 }
 
 .play {

@@ -11,7 +11,7 @@
           </div>
           <p class="activities__activity-list__item__title"><?php echo $activity->getTitle(); ?></p>
           <div class="white-button-list__time"><?php echo $activity->getDuration(); ?></div>
-          <form method="post" action="index.php?page=workout&id=<?php echo $workout_id; ?>&activity_id=<?php echo $activity->getId();?>&intensity=<?php echo $activity->getIntensity()?>">
+          <form class="white-button-list__time-button" method="post" action="index.php?page=workout&id=<?php echo $workout_id; ?>&activity_id=<?php echo $activity->getId();?>&intensity=<?php echo $activity->getIntensity()?>">
           <input type="hidden" name="action" value="remove"/>
           <button type="submit" class="white-button-list__delete" name="remove" value="<?php echo $activity->getId(); ?>"><img alt="delete" src="assets/img/delete.svg"></button>
           </form>
