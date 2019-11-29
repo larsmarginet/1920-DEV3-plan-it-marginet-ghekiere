@@ -23,6 +23,7 @@ class Controller {
       $this->set('css', '<link href="style.css" rel="stylesheet">'); // regular css tag
     }
     $this->createViewVarWithContent();
+    
     $this->renderInLayout();
     if (!empty($_SESSION['info'])) {
       unset($_SESSION['info']);
