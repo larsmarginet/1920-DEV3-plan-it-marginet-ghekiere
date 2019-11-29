@@ -16,6 +16,7 @@ import {handleSubmitForm, addValidationListeners} from './js/validate.js';
 
       const $timestamp = $form.querySelector('.timestamp');
       $timestamp.addEventListener('input', handleTimeInput);
+      $timestamp.addEventListener('mouseup', handleTimeMouseUp);
 
       const fields = $form.querySelectorAll(`.input`);
       addValidationListeners(fields);
@@ -84,13 +85,16 @@ import {handleSubmitForm, addValidationListeners} from './js/validate.js';
     const seconds = Math.floor(value * 60);
     const time = convertToMinutes(seconds);
     document.querySelector('.timestamp__text').textContent = `Timestamp: ${time}`;
+  };
 
+  const handleTimeMouseUp = e => {
+    const value = e.currentTarget.value;
+    const seconds = Math.floor(value * 60);
     const link = document.querySelector('.video-input').value;
     if (link) {
       const $videoContainer = e.currentTarget.parentElement.parentElement.querySelector('.detail_video');
       $videoContainer.innerHTML = `<iframe class="frame" width="560" height="315" src="https://www.youtube.com/embed/${link.split('=').pop()}?autoplay=1&start=${seconds}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     }
-
   };
 
 
