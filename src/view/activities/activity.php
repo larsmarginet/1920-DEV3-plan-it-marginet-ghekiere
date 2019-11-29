@@ -1,5 +1,5 @@
 <section class="wrapper">
-  <h2 class="Activity__title">Add an activity!</h2>
+  <h2 class="Activity__title">Add an activity</h2>
   <form class="activity__form" id="insertActivityForm" method="post" action="index.php?page=activity&id=<?php echo $workout_id; ?>&intensity=<?php echo $intensity; ?>">
   <input type="hidden" name="action" value="insertActivity"/>
   <p class="jserror"></p>
@@ -32,12 +32,12 @@
         <div class="num__wrapper">
           <div class="num__wrapper-label">
             <label class="activity__label title" for="time1">Minutes</label>
-            <input class="input" id="time1" min="0" max="60" name="min" type="number" value="00" required>
+            <input class="input" id="time1" min="0" max="60" name="min" type="number" value="00" maxlength="2" required>
             <p class="jserror"></p>
           </div>
           <div class="num__wrapper-label">
             <label class="activity__label title" for="time2">Seconds</label>
-            <input class="input" id="time2" min="0" max="60" step="15" name="sec" type="number" value="00" required>
+            <input class="input" id="time2" min="0" max="60" step="15" name="sec" type="number" value="00" maxlength="2" required>
             <p class="jserror"></p>
           </div>
         </div>

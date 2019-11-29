@@ -1,18 +1,18 @@
-@import './css/reset.css';
-@import './css/vars.css';
-@import './css/components/header.css';
-@import './css/components/home.css';
-@import './css/components/intensity.css';
-@import './css/components/workout.css';
-@import './css/components/activity.css';
-@import './css/components/detail.css';
+@import "./css/reset.css";
+@import "./css/vars.css";
+@import "./css/components/header.css";
+@import "./css/components/home.css";
+@import "./css/components/intensity.css";
+@import "./css/components/workout.css";
+@import "./css/components/activity.css";
+@import "./css/components/detail.css";
 
 @custom-media --small-screen (width >= 600px);
 @custom-media --large-screen (width >= 900px);
 
 html {
   box-sizing: border-box;
-  font-family: 'Istok Web', sans-serif;
+  font-family: "Istok Web", sans-serif;
   background-color: var(--background);
   font-size: var(--smallfont);
   color: var(--textColor);
@@ -31,7 +31,6 @@ html {
 }
 
 @media (--small-viewport) {
-
   .wrapper {
     padding: 0 calc(var(--smallMargin) * 2);
   }
@@ -41,7 +40,9 @@ html {
   }
 
   .activities__activity-list__item__link {
-    grid-template-columns: calc(var(--largeMargin) * 2) auto calc(var(--largeMargin) * 2) var(--largeMargin);
+    grid-template-columns:
+      calc(var(--largeMargin) * 2) auto calc(var(--largeMargin) * 2)
+      var(--largeMargin);
     grid-template-rows: 1fr;
     grid-column-gap: calc(var(--smallMargin) * 2);
   }
@@ -53,7 +54,6 @@ html {
 }
 
 @media (--medium-viewport) {
-
   .wrapper {
     padding: 0 calc(var(--smallMargin) * 2);
   }
@@ -66,7 +66,6 @@ html {
 }
 
 @media (--large-viewport) {
-
   .wrapper {
     max-width: calc(var(--smallMargin) * 96);
     margin: 0 auto;
@@ -75,7 +74,6 @@ html {
 
 .wrapper {
   margin: calc(var(--smallMargin) * 2) auto 0 auto;
-
 }
 
 .button-white {
@@ -94,7 +92,7 @@ html {
 }
 
 .subtext {
-  opacity: .6;
+  opacity: 0.6;
   margin-bottom: var(--mediumfont);
 }
 
@@ -110,12 +108,17 @@ html {
   align-items: center;
   border-radius: var(--smallMargin);
   margin: var(--mediumMargin) auto;
-  box-shadow: 0 0 var(--smallMargin) rgba(0, 0, 0, .25);
+  box-shadow: 0 0 var(--smallMargin) rgba(0, 0, 0, 0.25);
   max-width: calc(var(--smallMargin) * 40);
 }
 
 .add {
   padding-bottom: 10px;
+}
+
+.num__wrapper {
+  display: flex;
+  justify-content: left;
 }
 
 .white-button-list__time {
@@ -155,6 +158,10 @@ input {
 
 .input__title {
   height: calc(var(--smallMargin) * 4.4);
+}
+
+.num__wrapper-label {
+  padding: 5px;
 }
 
 .jserror {
