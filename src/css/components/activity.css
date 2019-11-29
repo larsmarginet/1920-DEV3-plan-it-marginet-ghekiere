@@ -94,3 +94,11 @@ input[type=number] {
   display: flex;
   flex-flow: column;
 }
+
+.detail_video {
+  display: none;
+}
+
+.has-js .detail_video {
+  display: block;
+}

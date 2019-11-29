@@ -57,9 +57,10 @@
       <div class="activity__form__section">
         <label class="activity__label title" for="youtube">Youtube link</label>
         <div>
-          <input class="input" id="youtube" name="youtube" type="url" required>
+          <input class="input video-input" id="youtube" name="youtube" type="url" required>
           <p class="jserror"></p>
         </div>
+        <div class="detail_video">video preview.</div>
         <p class="activity__label title">Time</p>
         <p class="activity__form__description">From what timestamp do you want the video to start?</p>
         <div class="num__wrapper">

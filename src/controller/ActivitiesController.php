@@ -125,7 +125,7 @@ class ActivitiesController extends Controller {
     $duration = "00:" . sprintf("%02d", $_POST['min']) . ":" . sprintf("%02d", $_POST['sec']);
 
     $timestamp = ($_POST['minute'] * 60) + $_POST['second'];
-    $youtube = end(explode('=',$_POST['youtube'])) . "?start=" . $timestamp;
+    $youtube = end(explode('=',$_POST['youtube'])) . "?autoplay=1&start=" . $timestamp . "&end=200";
 
     $data = array(
       'title' => $_POST['title'],

@@ -1,4 +1,6 @@
 require('./style.css');
+import {handleSubmitForm, addValidationListeners} from './js/validate.js';
+
 {
   const init = () => {
     document.documentElement.classList.add('has-js');
@@ -8,11 +10,14 @@ require('./style.css');
     if ($form) {
       $form.noValidate = true;
       $form.addEventListener('submit', handleSubmitForm);
+      const $videoInput = $form.querySelector('.video-input');
+      $videoInput.addEventListener('input', handleVideoInput);
       const fields = $form.querySelectorAll(`.input`);
       addValidationListeners(fields);
     }
 
     form();
+
   };
 
   // Form
@@ -54,70 +59,14 @@ require('./style.css');
     $prevPhase.style.display = 'block';
   };
 
-  const handleSubmitForm = e => {
-    const $form = e.currentTarget;
-    if (!$form.checkValidity()) {
-      e.preventDefault();
+  const handleVideoInput = e => {
+    const $link = e.currentTarget.value;
+    const embedLink = $link.split('=').pop();
+    const $videoContainer = e.currentTarget.parentElement.parentElement.querySelector('.detail_video');
 
-      const fields = $form.querySelectorAll(`.input`);
-      fields.forEach(showValidationInfo);
-
-      $form.querySelector(`.jserror`).innerHTML = `Some errors occured`;
-    } else {
-      console.log(`Form is valid => submit form`);
-    }
+    $videoContainer.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${embedLink}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
   };
 
-  const showValidationInfo = $field => {
-    let message;
-    if ($field.validity.valueMissing) {
-      message = `Required`;
-    }
-    if ($field.validity.typeMismatch) {
-      message = `Type not right`;
-    }
-    if ($field.validity.rangeOverflow) {
-      const max = $field.getAttribute(`max`);
-      message = `Too big, max ${max}`;
-    }
-    if ($field.validity.rangeUnderflow) {
-      const min = $field.getAttribute(`min`);
-      message = `Too small, min ${min}`;
-    }
-    if ($field.validity.tooShort) {
-      const min = $field.getAttribute(`minlength`);
-      message = `Too short, minimum length is ${min}`;
-    }
-    if ($field.validity.tooLong) {
-      const max = $field.getAttribute(`maxlength`);
-      message = `Too long, maximum length is ${max}`;
-    }
-    if (message) {
-      $field.parentElement.querySelector(`.jserror`).textContent = message;
-    }
-  };
-
-  const handeInputField = e => {
-    const $field = e.currentTarget;
-    if ($field.checkValidity()) {
-      $field.parentElement.querySelector(`.jserror`).textContent = ``;
-      if ($field.form.checkValidity()) {
-        $field.form.querySelector(`.jserror`).innerHTML = ``;
-      }
-    }
-  };
-
-  const handeBlurField = e => {
-    const $field = e.currentTarget;
-    showValidationInfo($field);
-  };
-
-  const addValidationListeners = fields => {
-    fields.forEach($field => {
-      $field.addEventListener(`input`, handeInputField);
-      $field.addEventListener(`blur`, handeBlurField);
-    });
-  };
 
   init();
 }
