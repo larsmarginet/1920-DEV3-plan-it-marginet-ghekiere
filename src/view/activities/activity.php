@@ -61,26 +61,18 @@
           <p class="jserror"></p>
         </div>
         <div class="detail_video">video preview.</div>
-        <p class="activity__label title">Time</p>
-        <p class="activity__form__description">From what timestamp do you want the video to start?</p>
-        <div class="num__wrapper">
-          <div class="num__wrapper-label">
-            <label class="activity__label title" for="minute">Minutes</label>
-            <input class="input" id="minute" min="0" max="60" name="minute" type="number" value="00" required>
-            <p class="jserror"></p>
-          </div>
-          <div class="num__wrapper-label">
-            <label class="activity__label title" for="second">Seconds</label>
-            <input class="input" id="second" min="0" max="60" name="second" type="number" value="00" required>
-            <p class="jserror"></p>
-          </div>
+        <div>
+          <label class="activity__label title" for="time">Time</label>
+          <p class="activity__form__description">From what timestamp do you want the video to start?</p>
+          <input class="input timestamp" type="range" name="time" id="time" value="0" min="0" max="10" step="0.01"><span class="timestamp__text">Timestamp: 0:00</span>
+          <p class="jserror"></p>
         </div>
       </div>
       <div class="button__wrapper">
         <button data-id="3"  class="activity__button prev"><p class="back-button">Back</p></button>
         <input type="submit" class="activity__button next-button" value="finish">
       </div>
-    <div>
+    </div>
 
 
   </form>

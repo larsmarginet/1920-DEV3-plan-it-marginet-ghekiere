@@ -124,8 +124,8 @@ class ActivitiesController extends Controller {
   private function handleInsertActivity() {
     $duration = "00:" . sprintf("%02d", $_POST['min']) . ":" . sprintf("%02d", $_POST['sec']);
 
-    $timestamp = ($_POST['minute'] * 60) + $_POST['second'];
-    $youtube = end(explode('=',$_POST['youtube'])) . "?autoplay=1&start=" . $timestamp . "&end=200";
+    $timestamp = floor($_POST['time'] * 60);
+    $youtube = end(explode('=',$_POST['youtube'])) . "?autoplay=1&start=" . $timestamp;
 
     $data = array(
       'title' => $_POST['title'],

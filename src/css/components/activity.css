@@ -102,3 +102,26 @@ input[type=number] {
 .has-js .detail_video {
   display: block;
 }
+
+input[type=range] {
+  appearance: none;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  background: white;
+  border: 1px solid var(--textColor);
+  height: calc(var(--smallMargin) * 2);
+  width: calc(var(--smallMargin) * 2);
+  margin-top: calc(var(--smallMargin) * -.8);
+  border-radius: calc(var(--smallMargin) * 2);
+  box-shadow: calc(var(--smallMargin) * 31) 0 0 calc(var(--smallMargin) * 30) var(--colorBlue);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: calc(var(--smallMargin) / 2.5);
+  background: var(--colorBlue);
+}

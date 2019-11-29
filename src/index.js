@@ -10,8 +10,13 @@ import {handleSubmitForm, addValidationListeners} from './js/validate.js';
     if ($form) {
       $form.noValidate = true;
       $form.addEventListener('submit', handleSubmitForm);
+
       const $videoInput = $form.querySelector('.video-input');
       $videoInput.addEventListener('input', handleVideoInput);
+
+      const $timestamp = $form.querySelector('.timestamp');
+      $timestamp.addEventListener('input', handleTimeInput);
+
       const fields = $form.querySelectorAll(`.input`);
       addValidationListeners(fields);
     }
@@ -64,7 +69,28 @@ import {handleSubmitForm, addValidationListeners} from './js/validate.js';
     const embedLink = $link.split('=').pop();
     const $videoContainer = e.currentTarget.parentElement.parentElement.querySelector('.detail_video');
 
-    $videoContainer.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${embedLink}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    $videoContainer.innerHTML = `<iframe class="frame" width="560" height="315" src="https://www.youtube.com/embed/${embedLink}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  };
+
+  const convertToMinutes = sec => {
+    const minutes = Math.floor(sec / 60);
+    let seconds = sec - minutes * 60;
+    seconds = (`0${seconds}`).slice(- 2);
+    return `${minutes}:${seconds}`;
+  };
+
+  const handleTimeInput = e => {
+    const value = e.currentTarget.value;
+    const seconds = Math.floor(value * 60);
+    const time = convertToMinutes(seconds);
+    document.querySelector('.timestamp__text').textContent = `Timestamp: ${time}`;
+
+    const link = document.querySelector('.video-input').value;
+    if (link) {
+      const $videoContainer = e.currentTarget.parentElement.parentElement.querySelector('.detail_video');
+      $videoContainer.innerHTML = `<iframe class="frame" width="560" height="315" src="https://www.youtube.com/embed/${link.split('=').pop()}?autoplay=1&start=${seconds}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    }
+
   };
 
 
