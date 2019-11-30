@@ -46,7 +46,7 @@
           <input class="input" id="amount" name="amount" min="0" max="10" type="number" value="01" required>
           <p class="jserror"></p>
         </div>
-        <div class="button__wrapper">
+        <div class="button__wrapper"> 
           <button data-id="2"  class="activity__button prev"><p class="back-button">Back</p></button>
           <button data-id="2" class="activity__button next"><p class="next-button">Next</p></button>
         </div>

@@ -113,7 +113,7 @@ html {
 }
 
 .add {
-  padding-bottom: 10px;
+  padding-bottom: calc(var(--smallMargin) / 10);
 }
 
 .num__wrapper {
@@ -161,7 +161,7 @@ input {
 }
 
 .num__wrapper-label {
-  padding: 5px;
+  padding: calc(var(--smallMargin) / 5);
 }
 
 .jserror {
