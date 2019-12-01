@@ -1,5 +1,7 @@
 # DEV3-1920-Plan-it
 
+Heroku url: https://afternoon-temple-71072.herokuapp.com/
+
 Concept omschrijving "Planit" oefening:
 
 "Workit-applicatie"
