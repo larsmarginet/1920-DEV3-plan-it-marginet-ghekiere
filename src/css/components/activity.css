@@ -113,15 +113,23 @@ input[type=range] {
 input[type=range]::-webkit-slider-thumb {
   appearance: none;
   background: white;
-  border: 1px solid var(--textColor);
+  border: calc(var(--smallMargin) / 10) solid var(--textColor);
   height: calc(var(--smallMargin) * 2);
   width: calc(var(--smallMargin) * 2);
   margin-top: calc(var(--smallMargin) * -.8);
   border-radius: calc(var(--smallMargin) * 2);
+}
+
+.timestamp::-webkit-slider-thumb {
   box-shadow: calc(var(--smallMargin) * 31) 0 0 calc(var(--smallMargin) * 30) var(--colorBlue);
 }
 
 input[type=range]::-webkit-slider-runnable-track {
   height: calc(var(--smallMargin) / 2.5);
   background: var(--colorBlue);
+}
+
+.amount__text {
+  display: inline-block;
+  margin: 0 var(--smallMargin);
 }

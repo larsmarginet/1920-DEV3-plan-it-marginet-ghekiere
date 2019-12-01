@@ -14,9 +14,18 @@ import {handleSubmitForm, addValidationListeners} from './js/validate.js';
       const $videoInput = $form.querySelector('.video-input');
       $videoInput.addEventListener('input', handleVideoInput);
 
-      const $timestamp = $form.querySelector('.timestamp');
+      const $timestamp = $form.querySelector('#time');
       $timestamp.addEventListener('input', handleTimeInput);
       $timestamp.addEventListener('mouseup', handleTimeMouseUp);
+
+      const $minutes = $form.querySelector('#time1');
+      $minutes.addEventListener('input', handleMinuteInput);
+      const $seconds = $form.querySelector('#time2');
+      $seconds.addEventListener('input', handleSecondInput);
+
+      const $amount = $form.querySelector('#amount');
+      $amount.addEventListener('input', handleAmountInput);
+
 
       const fields = $form.querySelectorAll(`.input`);
       addValidationListeners(fields);
@@ -96,6 +105,40 @@ import {handleSubmitForm, addValidationListeners} from './js/validate.js';
       $videoContainer.innerHTML = `<iframe class="frame" width="560" height="315" src="https://www.youtube.com/embed/${link.split('=').pop()}?autoplay=1&start=${seconds}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     }
   };
+
+  const handleMinuteInput = e => {
+    const $mins = e.currentTarget.value * 60;
+    const $secs = parseInt(document.querySelector('#time2').value);
+    const time = $mins + $secs;
+    const $totalTime = document.querySelector('.activity__extra-time__total');
+    const amount = document.querySelector('#amount').value;
+    $totalTime.textContent = convertToMinutes(time * amount);
+  };
+
+  const handleSecondInput = e => {
+    const $secs = parseInt(e.currentTarget.value);
+    const $mins = parseInt(document.querySelector('#time1').value) * 60;
+    const time = $mins + $secs;
+    const $totalTime = document.querySelector('.activity__extra-time__total');
+    const amount = document.querySelector('#amount').value;
+    $totalTime.textContent = convertToMinutes(time * amount);
+  };
+
+  const handleAmountInput = e => {
+    const amount = e.currentTarget.value;
+
+    const $text = document.querySelector('.amount__text');
+    $text.textContent = amount;
+    $text.style.marginLeft = `${(amount * 25) - 25}%`;
+
+    const $mins = parseInt(document.querySelector('#time1').value) * 60;
+    const $secs = parseInt(document.querySelector('#time2').value);
+    const time = ($mins + $secs) * amount;
+    const $totalTime = document.querySelector('.activity__extra-time__total');
+    $totalTime.textContent = convertToMinutes(time);
+
+  };
+
 
 
   init();

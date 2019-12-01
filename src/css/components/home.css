@@ -12,7 +12,7 @@
 }
 
 .white-button-list__img-wrapper {
-  border: 1px solid var(--colorBlue);
+  border: calc(var(--smallMargin) / 10) solid var(--colorBlue);
   border-radius: calc(var(--smallMargin) / 2);
   width: calc(var(--largeMargin) * 2);
   height: calc(var(--largeMargin) * 2);

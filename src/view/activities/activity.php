@@ -42,11 +42,13 @@
           </div>
         </div>
         <label class="activity__label title" for="amount">Amount</label>
-        <div class="num__wrapper">
-          <input class="input" id="amount" name="amount" min="0" max="10" type="number" value="01" required>
+        <div>
+        <p class="amount__text title">1</p>
+        <input class="input amount" type="range" name="amount" id="amount" value="1" min="1" max="5" step="1">
           <p class="jserror"></p>
         </div>
-        <div class="button__wrapper"> 
+        <p class="activity__extra-time">This adds <span class="activity__extra-time__total title"><span></p>
+        <div class="button__wrapper">
           <button data-id="2"  class="activity__button prev"><p class="back-button">Back</p></button>
           <button data-id="2" class="activity__button next"><p class="next-button">Next</p></button>
         </div>
